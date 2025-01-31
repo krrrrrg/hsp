@@ -556,7 +556,7 @@ body {
     width: 95%;
     padding: 1.5rem;
     max-height: 75vh;
-    margin-top: 8vh;
+    margin-top: 5vh;
   }
 
   .detail-content {
@@ -1143,14 +1143,14 @@ footer {
 .modal-content {
   background: white;
   margin: auto;
-  margin-top: 5vh;
+  margin-top: 2vh;
   padding: 2rem;
   border-radius: 20px;
   width: 90%;
   max-width: 800px;
   position: relative;
   overflow-y: auto;
-  max-height: 85vh;
+  max-height: 90vh;
 }
 
 .close-button {
@@ -1267,7 +1267,7 @@ footer {
     width: 95%;
     padding: 1.5rem;
     max-height: 75vh;
-    margin-top: 8vh;
+    margin-top: 5vh;
   }
 
   .detail-content {
