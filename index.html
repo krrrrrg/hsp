@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>강남제신경과의원</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo"><a href="index.html">강남제신경과</a></div>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">홈</a></li>
+          <li><a href="about.html">병원소개</a></li>
+          <li><a href="services.html">진료안내</a></li>
+          <li><a href="doctors.html">의료진</a></li>
+          <li><a href="reservation.html">예약하기</a></li>
+          <li><a href="map.html">오시는 길</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="hero">
+      <div class="hero-content" data-aos="fade-up">
+        <h1>당신의 건강한 삶을 위한<br />최상의 신경과 진료</h1>
+        <p>최신 의료장비와 전문의료진이 함께합니다</p>
+        <a href="reservation.html" class="cta-button">진료예약</a>
+      </div>
+    </section>
+
+    <section id="services" data-aos="fade-up">
+      <div class="container">
+        <h2>주요 진료분야</h2>
+        <div class="service-grid">
+          <div class="service-card" onclick="showServiceDetail('headache')">
+            <img src="headache.svg" alt="두통" />
+            <h3>두통 클리닉</h3>
+            <p>만성 편두통, 긴장성 두통의 전문적 치료</p>
+          </div>
+          <div class="service-card" onclick="showServiceDetail('sleep')">
+            <img src="sleep.svg" alt="수면장애" />
+            <h3>수면 클리닉</h3>
+            <p>수면무호흡증, 불면증 등 수면장애 치료</p>
+          </div>
+          <div class="service-card" onclick="showServiceDetail('dementia')">
+            <img src="brain.svg" alt="치매" />
+            <h3>치매 클리닉</h3>
+            <p>조기진단과 체계적인 치료 시스템</p>
+          </div>
+        </div>
+
+        <!-- 진료분야 상세 모달 -->
+        <div id="serviceModal" class="modal">
+          <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="headacheDetail" class="service-detail">
+              <h2>두통 클리닉</h2>
+              <div class="detail-content">
+                <div class="detail-section">
+                  <h3>주요 증상</h3>
+                  <ul>
+                    <li>만성 편두통</li>
+                    <li>긴장성 두통</li>
+                    <li>군발성 두통</li>
+                    <li>경추성 두통</li>
+                  </ul>
+                </div>
+                <div class="detail-section">
+                  <h3>진단 방법</h3>
+                  <ul>
+                    <li>정밀 두통 검사</li>
+                    <li>뇌 MRI/MRA</li>
+                    <li>경추부 X-ray</li>
+                    <li>전문의 상담</li>
+                  </ul>
+                </div>
+                <div class="detail-section">
+                  <h3>치료 방법</h3>
+                  <ul>
+                    <li>맞춤형 약물치료</li>
+                    <li>보톡스 치료</li>
+                    <li>신경차단술</li>
+                    <li>생활습관 교정</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div id="sleepDetail" class="service-detail">
+              <h2>수면 클리닉</h2>
+              <div class="detail-content">
+                <div class="detail-section">
+                  <h3>주요 증상</h3>
+                  <ul>
+                    <li>수면무호흡증</li>
+                    <li>불면증</li>
+                    <li>하지불안증후군</li>
+                    <li>과다수면</li>
+                  </ul>
+                </div>
+                <div class="detail-section">
+                  <h3>진단 방법</h3>
+                  <ul>
+                    <li>수면다원검사</li>
+                    <li>수면잠복기검사</li>
+                    <li>활동기록계검사</li>
+                    <li>수면 설문평가</li>
+                  </ul>
+                </div>
+                <div class="detail-section">
+                  <h3>치료 방법</h3>
+                  <ul>
+                    <li>양압기 치료</li>
+                    <li>수면위생교육</li>
+                    <li>인지행동치료</li>
+                    <li>맞춤형 약물치료</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div id="dementiaDetail" class="service-detail">
+              <h2>치매 클리닉</h2>
+              <div class="detail-content">
+                <div class="detail-section">
+                  <h3>주요 증상</h3>
+                  <ul>
+                    <li>기억력 저하</li>
+                    <li>판단력 감퇴</li>
+                    <li>언어능력 저하</li>
+                    <li>일상생활 어려움</li>
+                  </ul>
+                </div>
+                <div class="detail-section">
+                  <h3>진단 방법</h3>
+                  <ul>
+                    <li>신경인지검사</li>
+                    <li>뇌 CT/MRI</li>
+                    <li>혈액검사</li>
+                    <li>치매선별검사</li>
+                  </ul>
+                </div>
+                <div class="detail-section">
+                  <h3>치료 방법</h3>
+                  <ul>
+                    <li>약물치료</li>
+                    <li>인지재활치료</li>
+                    <li>가족상담</li>
+                    <li>생활수칙 교육</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" data-aos="fade-up">
+      <div class="container">
+        <h2>병원소개</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>최첨단 장비와 전문의료진이 함께하는<br />강남제신경과의원</h3>
+            <p>
+              20년 이상의 풍부한 임상경험을 바탕으로 정확한 진단과 치료를
+              제공합니다. 최신 의료장비와 편안한 진료환경에서 여러분의 건강을
+              책임지겠습니다.
+            </p>
+            <ul class="about-features">
+              <li>✓ 대학병원급 최신 의료장비 보유</li>
+              <li>✓ 전문의 1:1 맞춤 상담</li>
+              <li>✓ 빠르고 정확한 진단</li>
+              <li>✓ 충분한 진료시간</li>
+            </ul>
+          </div>
+          <div class="about-image">
+            <img src="hospital.jpg" alt="병원 내부" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="doctors" data-aos="fade-up">
+      <div class="container">
+        <h2>의료진 소개</h2>
+        <div class="doctors-grid">
+          <div class="doctor-card">
+            <img src="doctor1.jpg" alt="전문의" />
+            <h3>김원장 원장</h3>
+            <p class="doctor-specialty">신경과 전문의</p>
+            <ul class="doctor-credentials">
+              <li>서울대학교 의과대학 졸업</li>
+              <li>서울대학교병원 신경과 전문의</li>
+              <li>미국 하버드대학교 연수</li>
+              <li>대한신경과학회 정회원</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reservation" data-aos="fade-up">
+      <div class="container">
+        <h2>진료예약</h2>
+        <div class="reservation-content">
+          <div class="reservation-info">
+            <div class="info-card">
+              <h3>진료시간</h3>
+              <ul>
+                <li>평일: 09:00 - 18:00</li>
+                <li>토요일: 09:00 - 13:00</li>
+                <li>점심시간: 13:00 - 14:00</li>
+                <li>일요일/공휴일: 휴진</li>
+              </ul>
+            </div>
+            <div class="info-card">
+              <h3>예약문의</h3>
+              <p class="phone">051-759-7676</p>
+              <p>카카오톡: 강남제신경과의원</p>
+            </div>
+          </div>
+          <form class="reservation-form">
+            <div class="form-group">
+              <label for="name">이름</label>
+              <input type="text" id="name" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">연락처</label>
+              <input type="tel" id="phone" required />
+            </div>
+            <div class="form-group">
+              <label for="date">예약희망일</label>
+              <input type="date" id="date" required />
+            </div>
+            <div class="form-group">
+              <label for="message">증상 및 문의사항</label>
+              <textarea id="message" rows="4"></textarea>
+            </div>
+            <button type="submit" class="submit-button">예약하기</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="location" data-aos="fade-up">
+      <div class="container">
+        <div class="map-content">
+          <div class="map-container">
+            <div id="map" style="width: 100%; height: 400px"></div>
+          </div>
+          <div class="location-info">
+            <div class="info-card">
+              <h3>주소</h3>
+              <p>부산시 수영구 수영로 697</p>
+              <p>홍인빌딩 5층</p>
+            </div>
+            <div class="info-card">
+              <h3>대중교통</h3>
+              <div class="transport-info">
+                <h4>지하철</h4>
+                <p>2호선, 3호선 수영역 3번 출구 도보 1분</p>
+                <h4>버스</h4>
+                <p><strong>간선버스</strong><br />139, 140, 144</p>
+                <p><strong>지선버스</strong><br />3, 39, 83</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <h3>주차</h3>
+              <p>1. 지정주차장: 남강민물장어 주차장</p>
+              <p>부산시 수영구 수영로 725번길 55 (병원 뒷편)</p>
+              <p>※ 주차 후 접수대에 말씀해주시면 주차권 드립니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <h3>강남제신경과의원</h3>
+            <p>부산시 수영구 수영로 697, 홍인빌딩 5층</p>
+            <p>Tel: 051-759-7676</p>
+          </div>
+          <div class="footer-links">
+            <a href="privacy.html">개인정보보처리방침</a>
+            <a href="terms.html">이용약관</a>
+            <a href="map.html">오시는 길</a>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2024 강남제신경과의원. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script
+      type="text/javascript"
+      src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4h549yr3fc"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+      function initMap() {
+        try {
+          var mapOptions = {
+            center: new naver.maps.LatLng(35.1678376, 129.115742),
+            zoom: 17,
+            zoomControl: true,
+            zoomControlOptions: {
+              position: naver.maps.Position.TOP_RIGHT,
+            },
+          };
+
+          var map = new naver.maps.Map("map", mapOptions);
+
+          var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(35.1678376, 129.115742),
+            map: map,
+          });
+
+          var contentString = [
+            '<div class="iw_inner" style="padding:10px;">',
+            '   <h3 style="margin-bottom:10px;">강남제신경과</h3>',
+            "   <p>부산시 수영구 수영로 697<br/>",
+            "   홍인빌딩 5층<br/>",
+            "   Tel: 051-759-7676</p>",
+            "</div>",
+          ].join("");
+
+          var infowindow = new naver.maps.InfoWindow({
+            content: contentString,
+            maxWidth: 300,
+            backgroundColor: "#fff",
+            borderColor: "#888",
+            borderWidth: 2,
+            anchorSize: new naver.maps.Size(30, 30),
+            anchorSkew: true,
+            pixelOffset: new naver.maps.Point(20, -20),
+          });
+
+          naver.maps.Event.addListener(marker, "click", function (e) {
+            if (infowindow.getMap()) {
+              infowindow.close();
+            } else {
+              infowindow.open(map, marker);
+            }
+          });
+
+          // 초기에 정보창 표시
+          infowindow.open(map, marker);
+        } catch (e) {
+          console.error("네이버 지도 API 로드 중 오류 발생:", e);
+        }
+      }
+
+      // 페이지 로드 완료 후 지도 초기화
+      window.addEventListener("load", initMap);
+    </script>
+  </body>
+</html>

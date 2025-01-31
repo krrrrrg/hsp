@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>진료예약 - 강남제신경과의원</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo"><a href="index.html">강남제신경과</a></div>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">홈</a></li>
+          <li><a href="about.html">병원소개</a></li>
+          <li><a href="services.html">진료안내</a></li>
+          <li><a href="doctors.html">의료진</a></li>
+          <li><a href="reservation.html">예약하기</a></li>
+          <li><a href="map.html">오시는 길</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="page-content">
+      <section id="reservation" data-aos="fade-up">
+        <div class="container">
+          <h2>진료예약</h2>
+          <div class="reservation-content">
+            <div class="reservation-info">
+              <div class="info-card">
+                <h3>진료시간</h3>
+                <ul>
+                  <li>평일: 09:00 - 18:00</li>
+                  <li>토요일: 09:00 - 13:00</li>
+                  <li>점심시간: 13:00 - 14:00</li>
+                  <li>일요일/공휴일: 휴진</li>
+                </ul>
+              </div>
+              <div class="info-card">
+                <h3>예약문의</h3>
+                <p class="phone">051-759-7676</p>
+                <p>카카오톡: 강남제신경과</p>
+              </div>
+              <div class="info-card">
+                <h3>오시는 길</h3>
+                <p>부산시 수영구 수영로 697</p>
+                <p>홍인빌딩 5층</p>
+                <p class="transport">
+                  <strong>지하철</strong><br />
+                  2호선, 3호선 수영역 3번 출구 도보 1분
+                </p>
+                <p class="transport">
+                  <strong>버스</strong><br />
+                  간선버스: 139, 140, 144<br />
+                  지선버스: 3, 39, 83
+                </p>
+              </div>
+            </div>
+            <form class="reservation-form">
+              <div class="form-group">
+                <label for="name">이름</label>
+                <input type="text" id="name" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">연락처</label>
+                <input type="tel" id="phone" required />
+              </div>
+              <div class="form-group">
+                <label for="date">예약희망일</label>
+                <input type="date" id="date" required />
+              </div>
+              <div class="form-group">
+                <label for="time">예약희망시간</label>
+                <select id="time" required>
+                  <option value="">선택해주세요</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="doctor">담당의사</label>
+                <select id="doctor" required>
+                  <option value="">선택해주세요</option>
+                  <option value="김브레인">김브레인 원장</option>
+                  <option value="이뇌신">이뇌신 원장</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">증상 및 문의사항</label>
+                <textarea id="message" rows="4"></textarea>
+              </div>
+              <button type="submit" class="submit-button">예약하기</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <h3>강남제신경과의원</h3>
+            <p>부산시 수영구 수영로 697, 홍인빌딩 5층</p>
+            <p>Tel: 051-759-7676</p>
+          </div>
+          <div class="footer-links">
+            <a href="privacy.html">개인정보처리방침</a>
+            <a href="terms.html">이용약관</a>
+            <a href="map.html">오시는 길</a>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 강남제신경과의원. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
