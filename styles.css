@@ -121,7 +121,9 @@ body {
 
 #hero {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("3.jpg") no-repeat center/cover;
+    url("3.jpg");
+  background-size: cover;
+  background-position: center;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -130,7 +132,6 @@ body {
   color: white;
   position: relative;
   overflow: hidden;
-  will-change: transform;
 }
 
 .hero-content {
@@ -353,8 +354,6 @@ body {
   width: 100%;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  loading="lazy"
-  decoding="async"
 }
 
 /* 모바일 대응을 위한 미디어 쿼리 수정 */
@@ -419,8 +418,6 @@ body {
   transition: opacity 0.3s ease, transform 0.3s ease;
   display: none;
   opacity: 0;
-  loading="lazy"
-  decoding="async"
 }
 
 .doctor-card.active {
@@ -570,6 +567,680 @@ body {
   .doctor-info h3 {
     font-size: 1.8rem;
   }
+}
+
+/* Page Content Styles */
+.page-content {
+  padding-top: 80px; /* 네비게이션 바 높이만큼 여백 */
+}
+
+.page-content section {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+}
+
+/* Section Background Colors */
+#about {
+  background: var(--secondary-color);
+}
+
+#services {
+  background: white;
+}
+
+#doctors {
+  background: var(--secondary-color);
+}
+
+#reservation {
+  background: white;
+}
+
+#location {
+  background: var(--secondary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .page-content section {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 1.5rem;
+    max-height: 75vh;
+    margin-top: 5vh;
+  }
+
+  .detail-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .detail-section {
+    padding: 1.2rem;
+    margin-bottom: 0.4rem;
+    transition: transform 0.3s ease;
+  }
+
+  .service-detail h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.6rem;
+    padding-top: 0.5rem;
+  }
+
+  .detail-section ul li {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Policy Pages */
+.policy-section {
+  padding: 6rem 2rem;
+  background: var(--secondary-color);
+}
+
+.policy-content {
+  background: white;
+  padding: 3rem 4rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.policy-content h3 {
+  color: var(--primary-color);
+  margin: 2.5rem 0 1.2rem;
+  font-size: 1.4rem;
+}
+
+.policy-content h3:first-child {
+  margin-top: 0;
+}
+
+.policy-content p {
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+
+.policy-content ul {
+  margin-left: 1.5rem;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+}
+
+.policy-content li {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+/* Map Page */
+.map-section {
+  padding: 6rem 2rem 4rem 2rem;
+  background: var(--secondary-color);
+}
+
+.map-content {
+  padding: 2rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.map-container {
+  width: 100%;
+  margin-bottom: 20px;
+  background: white;
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  min-height: 600px;
+}
+
+#map {
+  border-radius: 10px;
+  width: 100%;
+  height: 100% !important;
+  min-height: 580px;
+}
+
+.iw_inner {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.iw_inner h3 {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.location-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.transport-info h4 {
+  color: var(--primary-color);
+  margin: 1rem 0 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .map-content {
+    grid-template-columns: 1fr;
+    padding: 1rem 0;
+  }
+  .map-container {
+    min-height: 300px;
+    width: 85%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+  #map {
+    min-height: 250px;
+  }
+  .location-info {
+    width: 85%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+  }
+  .info-card {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 메인 페이지의 의료진 섹션 */
+.home-doctor-section .doctors-grid {
+  grid-template-columns: 1fr;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 슬라이드 인디케이터 */
+.slide-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+}
+
+.slide-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slide-indicator.active {
+  background: var(--primary-color);
+}
+
+.doctor-info {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
+/* 의료진 페이지 전용 스타일 */
+.doctors-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.doctor-card {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+}
+
+.doctor-card.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+.doctor-card img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+  border: 8px solid var(--secondary-color);
+  box-shadow: 0 10px 20px rgba(45, 91, 255, 0.1);
+}
+
+.doctor-card h3 {
+  font-size: 2.2rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.doctor-specialty {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.doctor-credentials {
+  list-style: none;
+  background: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 2rem 0;
+}
+
+.doctor-credentials li {
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.doctor-description {
+  margin-top: 2rem;
+}
+
+.doctor-description h4 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.doctor-description ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.slide-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.prev-btn,
+.next-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  transform: scale(1.2);
+}
+
+.slide-indicators {
+  display: flex;
+  gap: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .doctors-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .doctor-card img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .doctor-card h3 {
+    font-size: 1.8rem;
+  }
+
+  .doctor-credentials {
+    padding: 1.5rem;
+  }
+
+  .doctor-description ul {
+    gap: 1rem;
+  }
+}
+
+.doctors-link {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.more-btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.more-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Reservation Section */
+#reservation {
+  padding: 6rem 2rem;
+  background: var(--secondary-color);
+}
+
+.reservation-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.info-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.info-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+}
+
+.info-card ul {
+  margin-bottom: 1rem;
+}
+
+.info-card li {
+  margin-bottom: 0.8rem;
+  color: #666;
+}
+
+.reservation-form {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.submit-button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  background: white;
+  padding: 3rem 2rem;
+  border-top: 1px solid #eee;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.footer-info h3 {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-info p {
+  color: #666;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--primary-color);
+}
+
+.copyright {
+  text-align: center;
+  color: #999;
+  font-size: 0.9rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 2rem 1rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-info {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer-info p {
+    font-size: 0.9rem;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    margin: 0;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    padding: 0.5rem;
+  }
+
+  .copyright {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1100;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding-bottom: 3rem;
+}
+
+.modal-content {
+  background: white;
+  margin: auto;
+  margin-top: 2vh;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.close-button {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #666;
+  z-index: 1200;
+}
+
+.service-detail {
+  display: none;
+  padding-top: 20px;
+}
+
+.service-detail.active {
+  display: block;
+}
+
+.service-detail h2 {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.detail-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.detail-section {
+  background: var(--light-gray);
+  padding: 1.5rem;
+  border-radius: 15px;
+  height: fit-content;
+}
+
+.detail-section:hover {
+  transform: translateY(-5px);
+}
+
+.detail-section h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.detail-section ul {
+  list-style: none;
+}
+
+.detail-section ul li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.detail-section ul li::before {
+  content: "•";
+  color: var(--primary-color);
+  position: absolute;
+  left: 0;
+}
+
+.service-card {
+  cursor: pointer;
 }
 
 /* Page Content Styles */
@@ -883,8 +1554,6 @@ body {
   margin-bottom: 2rem;
   border: 8px solid var(--secondary-color);
   box-shadow: 0 10px 20px rgba(45, 91, 255, 0.1);
-  loading="lazy"
-  decoding="async"
 }
 
 .doctor-card h3 {
@@ -1096,41 +1765,4 @@ input[type="text"]::placeholder {
     word-break: keep-all; /* 한글 단어 단위로 줄바꿈 */
     overflow-wrap: break-word; /* 긴 영단어 줄바꿈 */
   }
-}
-
-/* 이미지 로딩 중 스켈레톤 UI */
-.image-skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-/* 아이콘 스프라이트 */
-.icon {
-  background-image: url('sprite.png');
-  background-repeat: no-repeat;
-  display: inline-block;
-}
-
-.icon-headache {
-  width: 80px;
-  height: 80px;
-  background-position: 0 0;
-}
-
-.icon-sleep {
-  width: 80px;
-  height: 80px;
-  background-position: -80px 0;
-}
-
-.icon-brain {
-  width: 80px;
-  height: 80px;
-  background-position: -160px 0;
 }
