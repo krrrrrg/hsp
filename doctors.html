@@ -13,6 +13,10 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
   </head>
   <body>
     <nav class="navbar">
@@ -35,58 +39,28 @@
     </nav>
 
     <main class="page-content">
-      <section id="doctors" data-aos="fade-up">
+      <section id="doctors">
         <div class="container">
           <h2>의료진 소개</h2>
-          <div class="doctors-grid">
-            <div class="doctor-card active" data-index="0">
-              <img
-                src="https://placehold.co/200x200/2D5BFF/FFF?text=의료진"
-                alt="전문의"
-              />
-              <h3>김브레인 원장</h3>
-              <p class="doctor-specialty">신경과 전문의</p>
-              <ul class="doctor-credentials">
-                <li>서울대학교 의과대학 졸업</li>
-                <li>서울대학교병원 신경과 전문의</li>
-                <li>미국 하버드대학교 연수</li>
-                <li>대한신경과학회 정회원</li>
-              </ul>
-              <div class="doctor-description">
-                <h4>전문 진료분야</h4>
-                <ul>
-                  <li>두통 클리닉</li>
-                  <li>수면장애</li>
-                  <li>치매</li>
-                  <li>뇌졸중</li>
-                </ul>
+          <div class="doctor-profile detailed">
+            <img
+              src="https://placehold.co/200x200/2D5BFF/FFF?text=의료진"
+              alt="강남제 원장"
+              class="doctor-image"
+            />
+            <div class="doctor-info">
+              <h3>강남제 원장</h3>
+              <p class="doctor-title">신경과 전문의</p>
+              <div class="doctor-credentials">
+                <p>부산대학교 의과대학 졸업</p>
+                <p>부산대학교병원 신경과 전문의</p>
+                <p>대한신경과학회 정회원</p>
+                <p>대한뇌졸중학회 정회원</p>
               </div>
-            </div>
-
-            <div class="doctor-card" data-index="1">
-              <img src="doctor2.jpg" alt="전문의" />
-              <h3>이뇌신 원장</h3>
-              <p class="doctor-specialty">신경과 전문의</p>
-              <ul class="doctor-credentials">
-                <li>연세대학교 의과대학 졸업</li>
-                <li>세브란스병원 신경과 전문의</li>
-                <li>미국 존스홉킨스대학교 연수</li>
-                <li>대한수면학회 정회원</li>
-              </ul>
-              <div class="doctor-description">
+              <div class="doctor-specialties">
                 <h4>전문 진료분야</h4>
-                <ul>
-                  <li>수면무호흡증</li>
-                  <li>불면증</li>
-                  <li>파킨슨병</li>
-                  <li>어지럼증</li>
-                </ul>
+                <p>두통 / 수면장애 / 뇌졸중 / 어지럼증</p>
               </div>
-            </div>
-
-            <div class="doctor-nav">
-              <button onclick="prevDoctor()">←</button>
-              <button onclick="nextDoctor()">→</button>
             </div>
           </div>
         </div>

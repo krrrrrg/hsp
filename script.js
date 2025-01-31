@@ -191,21 +191,31 @@ const doctorCards = document.querySelectorAll(".doctor-card");
 
 function showDoctor(index) {
   const currentCard = document.querySelector(".doctor-card.active");
+  const indicators = document.querySelectorAll(".slide-indicator");
   const nextCard = doctorCards[index];
+  const direction = index > currentDoctorIndex ? 1 : -1;
+
+  // 인디케이터 업데이트
+  indicators.forEach((indicator, i) => {
+    indicator.classList.toggle("active", i === index);
+  });
 
   if (currentCard) {
+    currentCard.style.transform = `translateX(${-100 * direction}%)`;
     currentCard.style.opacity = "0";
-    currentCard.style.transform = "translateX(-100%)";
+
+    nextCard.style.display = "block";
+    nextCard.style.transform = `translateX(${100 * direction}%)`;
+
     setTimeout(() => {
       currentCard.classList.remove("active");
-    }, 300);
+      nextCard.classList.add("active");
+      nextCard.style.opacity = "1";
+      nextCard.style.transform = "translateX(0)";
+    }, 50);
   }
 
-  setTimeout(() => {
-    nextCard.classList.add("active");
-    nextCard.style.opacity = "1";
-    nextCard.style.transform = "translateX(0)";
-  }, 300);
+  currentDoctorIndex = index;
 }
 
 function nextDoctor() {
@@ -217,4 +227,46 @@ function prevDoctor() {
   currentDoctorIndex =
     (currentDoctorIndex - 1 + doctorCards.length) % doctorCards.length;
   showDoctor(currentDoctorIndex);
+}
+
+// 터치/스와이프 기능 추가
+let isDragging = false;
+let startPos = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
+
+document
+  .querySelector(".doctors-grid")
+  .addEventListener("mousedown", dragStart);
+document
+  .querySelector(".doctors-grid")
+  .addEventListener("touchstart", dragStart);
+document.querySelector(".doctors-grid").addEventListener("mousemove", drag);
+document.querySelector(".doctors-grid").addEventListener("touchmove", drag);
+document.querySelector(".doctors-grid").addEventListener("mouseup", dragEnd);
+document.querySelector(".doctors-grid").addEventListener("touchend", dragEnd);
+
+function dragStart(e) {
+  isDragging = true;
+  startPos = e.type === "mousedown" ? e.clientX : e.touches[0].clientX;
+}
+
+function drag(e) {
+  if (!isDragging) return;
+  const currentPosition =
+    e.type === "mousemove" ? e.clientX : e.touches[0].clientX;
+  const diff = currentPosition - startPos;
+
+  if (Math.abs(diff) > 50) {
+    isDragging = false;
+    if (diff > 0) {
+      prevDoctor();
+    } else {
+      nextDoctor();
+    }
+  }
+}
+
+function dragEnd() {
+  isDragging = false;
 }
