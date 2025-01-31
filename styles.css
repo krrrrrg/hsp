@@ -1727,3 +1727,20 @@ input[type="text"]::placeholder {
     margin: 0 1.5rem;
   }
 }
+
+/* 페이지 헤더 로고 스타일 */
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-header img {
+  height: 50px;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .page-header img {
+    height: 40px;
+  }
+}
