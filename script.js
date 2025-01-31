@@ -190,8 +190,15 @@ let currentDoctorIndex = 0;
 const doctorCards = document.querySelectorAll(".doctor-card");
 
 function showDoctor(index) {
-  doctorCards.forEach((card) => card.classList.remove("active"));
-  doctorCards[index].classList.add("active");
+  doctorCards.forEach((card) => {
+    card.classList.remove("active");
+    card.style.opacity = "0";
+  });
+
+  setTimeout(() => {
+    doctorCards[index].classList.add("active");
+    doctorCards[index].style.opacity = "1";
+  }, 300);
 }
 
 function nextDoctor() {
