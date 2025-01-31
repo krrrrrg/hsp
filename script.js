@@ -184,3 +184,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// 의사 카드 슬라이드 기능
+let currentDoctorIndex = 0;
+const doctorCards = document.querySelectorAll(".doctor-card");
+
+function showDoctor(index) {
+  doctorCards.forEach((card) => card.classList.remove("active"));
+  doctorCards[index].classList.add("active");
+}
+
+function nextDoctor() {
+  currentDoctorIndex = (currentDoctorIndex + 1) % doctorCards.length;
+  showDoctor(currentDoctorIndex);
+}
+
+function prevDoctor() {
+  currentDoctorIndex =
+    (currentDoctorIndex - 1 + doctorCards.length) % doctorCards.length;
+  showDoctor(currentDoctorIndex);
+}

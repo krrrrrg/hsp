@@ -261,6 +261,38 @@ body {
     min-height: auto;
     padding: 4rem 0;
   }
+
+  .doctors-grid {
+    grid-template-columns: 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .doctor-card {
+    max-width: 85%;
+    margin: 0 auto;
+    display: none; /* 기본적으로 숨김 */
+  }
+
+  .doctor-card.active {
+    display: block; /* 활성화된 카드만 표시 */
+  }
+
+  .doctor-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .doctor-nav button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+  }
 }
 
 @media (min-width: 769px) {
@@ -317,11 +349,24 @@ body {
   background: white;
 }
 
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
 .doctor-card {
   background: var(--light-gray);
   padding: 2rem;
   border-radius: 20px;
-  text-align: center;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .doctor-card img {
@@ -487,6 +532,17 @@ footer {
   .map-content {
     grid-template-columns: 1fr;
     padding: 0;
+  }
+
+  .doctors-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .doctor-card {
+    max-width: 85%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
   }
 }
 
@@ -774,4 +830,11 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* 메인 페이지의 의료진 섹션 */
+.home-doctor-section .doctors-grid {
+  grid-template-columns: 1fr;
+  max-width: 600px;
+  margin: 0 auto;
 }

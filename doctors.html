@@ -39,7 +39,7 @@
         <div class="container">
           <h2>의료진 소개</h2>
           <div class="doctors-grid">
-            <div class="doctor-card">
+            <div class="doctor-card active" data-index="0">
               <img
                 src="https://placehold.co/200x200/2D5BFF/FFF?text=의료진"
                 alt="전문의"
@@ -63,7 +63,7 @@
               </div>
             </div>
 
-            <div class="doctor-card">
+            <div class="doctor-card" data-index="1">
               <img src="doctor2.jpg" alt="전문의" />
               <h3>이뇌신 원장</h3>
               <p class="doctor-specialty">신경과 전문의</p>
@@ -82,6 +82,11 @@
                   <li>어지럼증</li>
                 </ul>
               </div>
+            </div>
+
+            <div class="doctor-nav">
+              <button onclick="prevDoctor()">이전</button>
+              <button onclick="nextDoctor()">다음</button>
             </div>
           </div>
         </div>
