@@ -190,14 +190,21 @@ let currentDoctorIndex = 0;
 const doctorCards = document.querySelectorAll(".doctor-card");
 
 function showDoctor(index) {
-  doctorCards.forEach((card) => {
-    card.classList.remove("active");
-    card.style.opacity = "0";
-  });
+  const currentCard = document.querySelector(".doctor-card.active");
+  const nextCard = doctorCards[index];
+
+  if (currentCard) {
+    currentCard.style.opacity = "0";
+    currentCard.style.transform = "translateX(-100%)";
+    setTimeout(() => {
+      currentCard.classList.remove("active");
+    }, 300);
+  }
 
   setTimeout(() => {
-    doctorCards[index].classList.add("active");
-    doctorCards[index].style.opacity = "1";
+    nextCard.classList.add("active");
+    nextCard.style.opacity = "1";
+    nextCard.style.transform = "translateX(0)";
   }, 300);
 }
 
