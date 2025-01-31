@@ -115,26 +115,36 @@ body {
 }
 
 #hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("3.jpg");
+  background-size: cover;
+  background-position: center;
   height: 100vh;
-  background: var(--secondary-color);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 2rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  z-index: 2;
+  padding: 0 1rem;
 }
 
 .hero-content h1 {
   font-size: 3.5rem;
-  font-weight: 700;
   margin-bottom: 1.5rem;
-  line-height: 1.2;
+  line-height: 1.3;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-content p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  color: #666;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .cta-button {
@@ -334,7 +344,44 @@ body {
 .about-image img {
   width: 100%;
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 모바일 대응을 위한 미디어 쿼리 수정 */
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-image {
+    order: -1; /* 이미지를 텍스트 위로 이동 */
+    margin: 0 1rem; /* 좌우 여백 추가 */
+  }
+
+  .about-image img {
+    width: 100%;
+    border-radius: 20px; /* PC 버전과 동일한 둥근 모서리 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+  }
+
+  .about-text {
+    padding: 0 1.5rem;
+  }
+
+  .about-text h3 {
+    font-size: 1.8rem;
+    line-height: 1.4;
+  }
+
+  .about-features {
+    margin-top: 1.5rem;
+  }
+
+  .about-features li {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+  }
 }
 
 /* Doctors Section */
@@ -590,27 +637,37 @@ body {
 
 .policy-content {
   background: white;
-  padding: 3rem;
+  padding: 3rem 4rem;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 900px;
 }
 
 .policy-content h3 {
   color: var(--primary-color);
-  margin: 2rem 0 1rem;
+  margin: 2.5rem 0 1.2rem;
+  font-size: 1.4rem;
 }
 
 .policy-content h3:first-child {
   margin-top: 0;
 }
 
+.policy-content p {
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+
 .policy-content ul {
   margin-left: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
 }
 
 .policy-content li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
 }
 
 /* Map Page */
@@ -1301,27 +1358,37 @@ footer {
 
 .policy-content {
   background: white;
-  padding: 3rem;
+  padding: 3rem 4rem;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 900px;
 }
 
 .policy-content h3 {
   color: var(--primary-color);
-  margin: 2rem 0 1rem;
+  margin: 2.5rem 0 1.2rem;
+  font-size: 1.4rem;
 }
 
 .policy-content h3:first-child {
   margin-top: 0;
 }
 
+.policy-content p {
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+
 .policy-content ul {
   margin-left: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
 }
 
 .policy-content li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
 }
 
 /* Map Page */
@@ -1607,4 +1674,51 @@ footer {
 
 .more-btn:hover {
   transform: translateY(-2px);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0.5rem 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin-top: 0.3rem;
+}
+
+.checkbox-group label {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.4;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .checkbox-group {
+    padding: 0.8rem 0;
+  }
+
+  .checkbox-group label {
+    font-size: 0.9rem;
+  }
+}
+
+input[type="text"]::placeholder {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* 모바일에서는 여백을 줄임 */
+@media (max-width: 768px) {
+  .policy-content {
+    padding: 2rem;
+    margin: 0 1.5rem;
+  }
 }
