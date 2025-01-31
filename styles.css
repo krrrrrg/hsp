@@ -340,6 +340,67 @@ body {
 /* Doctors Section */
 #doctors {
   padding: 6rem 2rem;
+<<<<<<< HEAD
+=======
+  background: white;
+}
+
+.doctors-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+  position: relative;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.doctor-card {
+  background: var(--light-gray);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  height: 100%;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: none;
+  opacity: 0;
+}
+
+.doctor-card.active {
+  display: block;
+  opacity: 1;
+}
+
+.doctor-card img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  object-fit: cover;
+}
+
+.doctor-specialty {
+  color: var(--primary-color);
+  font-weight: 500;
+  margin: 0.5rem 0;
+}
+
+.doctor-credentials {
+  list-style: none;
+  text-align: left;
+  margin-top: 1.5rem;
+}
+
+.doctor-credentials li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Reservation Section */
+#reservation {
+  padding: 6rem 2rem;
+>>>>>>> parent of 1ed8c8c (Fix: 의료진 소개 화살표 네비게이션 위치 개선)
   background: var(--secondary-color);
 }
 
@@ -657,18 +718,23 @@ body {
   grid-template-columns: 1fr;
   max-width: 600px;
   margin: 0 auto;
-  padding: 0 3rem;
 }
 
 /* 슬라이드 인디케이터 */
 .slide-indicators {
   display: flex;
+<<<<<<< HEAD
   justify-content: center;
   gap: 1rem;
   position: absolute;
   bottom: 2rem;
   left: 0;
   right: 0;
+=======
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 10;
+>>>>>>> parent of 1ed8c8c (Fix: 의료진 소개 화살표 네비게이션 위치 개선)
 }
 
 .slide-indicator {
@@ -785,6 +851,7 @@ body {
   cursor: pointer;
   padding: 0.5rem;
   transition: transform 0.3s ease;
+<<<<<<< HEAD
 }
 
 .prev-btn:hover,
@@ -806,6 +873,12 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+=======
+}
+
+.doctor-nav button:hover {
+  transform: scale(1.1);
+>>>>>>> parent of 1ed8c8c (Fix: 의료진 소개 화살표 네비게이션 위치 개선)
 }
 
 @media (max-width: 768px) {
