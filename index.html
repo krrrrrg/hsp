@@ -219,7 +219,7 @@
             </ul>
           </div>
           <div class="about-image">
-            <img src="hospital.jpg" alt="병원 내부" />
+            <img src="2.jpg" alt="병원 내부" />
           </div>
         </div>
       </div>
@@ -229,11 +229,7 @@
       <div class="container">
         <h2>의료진 소개</h2>
         <div class="doctor-profile">
-          <img
-            src="https://placehold.co/200x200/2D5BFF/FFF?text=의료진"
-            alt="강남제 원장"
-            class="doctor-image"
-          />
+          <img src="5.png" alt="강남제 원장" class="doctor-image" />
           <div class="doctor-info">
             <h3>강남제 원장</h3>
             <p class="doctor-title">신경과 전문의</p>
@@ -270,6 +266,16 @@
               <input type="text" id="name" required />
             </div>
             <div class="form-group">
+              <label for="birthdate">생년월일</label>
+              <input
+                type="text"
+                id="birthdate"
+                placeholder="예) 19801231"
+                maxlength="8"
+                required
+              />
+            </div>
+            <div class="form-group">
               <label for="phone">연락처</label>
               <input type="tel" id="phone" required />
             </div>
@@ -280,6 +286,13 @@
             <div class="form-group">
               <label for="message">증상 및 문의사항</label>
               <textarea id="message" rows="4"></textarea>
+            </div>
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="privacy" required />
+              <label for="privacy">
+                개인정보 수집 및 이용에 동의합니다.
+                <a href="privacy.html" target="_blank">[자세히 보기]</a>
+              </label>
             </div>
             <button type="submit" class="submit-button">예약하기</button>
           </form>
