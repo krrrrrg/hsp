@@ -340,8 +340,6 @@ body {
 /* Doctors Section */
 #doctors {
   padding: 6rem 2rem;
-<<<<<<< HEAD
-=======
   background: white;
 }
 
@@ -400,7 +398,6 @@ body {
 /* Reservation Section */
 #reservation {
   padding: 6rem 2rem;
->>>>>>> parent of 1ed8c8c (Fix: 의료진 소개 화살표 네비게이션 위치 개선)
   background: var(--secondary-color);
 }
 
@@ -559,7 +556,7 @@ body {
     width: 95%;
     padding: 1.5rem;
     max-height: 75vh;
-    top: 10%;
+    margin-top: 8vh;
   }
 
   .detail-content {
@@ -713,18 +710,12 @@ body {
 /* 슬라이드 인디케이터 */
 .slide-indicators {
   display: flex;
-<<<<<<< HEAD
   justify-content: center;
   gap: 1rem;
   position: absolute;
   bottom: 2rem;
   left: 0;
   right: 0;
-=======
-  justify-content: space-between;
-  padding: 0 1rem;
-  z-index: 10;
->>>>>>> parent of 1ed8c8c (Fix: 의료진 소개 화살표 네비게이션 위치 개선)
 }
 
 .slide-indicator {
@@ -841,7 +832,6 @@ body {
   cursor: pointer;
   padding: 0.5rem;
   transition: transform 0.3s ease;
-<<<<<<< HEAD
 }
 
 .prev-btn:hover,
@@ -863,12 +853,6 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-=======
-}
-
-.doctor-nav button:hover {
-  transform: scale(1.1);
->>>>>>> parent of 1ed8c8c (Fix: 의료진 소개 화살표 네비게이션 위치 개선)
 }
 
 @media (max-width: 768px) {
@@ -1157,19 +1141,16 @@ footer {
 }
 
 .modal-content {
-  position: relative;
   background: white;
-  width: 90%;
-  max-width: 800px;
+  margin: auto;
+  margin-top: 5vh;
   padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  max-height: 80vh;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
   overflow-y: auto;
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
+  max-height: 85vh;
 }
 
 .close-button {
@@ -1286,7 +1267,7 @@ footer {
     width: 95%;
     padding: 1.5rem;
     max-height: 75vh;
-    top: 10%;
+    margin-top: 8vh;
   }
 
   .detail-content {
@@ -1435,7 +1416,6 @@ footer {
   grid-template-columns: 1fr;
   max-width: 600px;
   margin: 0 auto;
-  padding: 0 3rem;
 }
 
 /* 슬라이드 인디케이터 */
