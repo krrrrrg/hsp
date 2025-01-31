@@ -1744,25 +1744,3 @@ input[type="text"]::placeholder {
     height: 40px;
   }
 }
-
-/* 워드랩 방지를 위한 공통 스타일 */
-.prevent-wrap {
-  white-space: nowrap;
-}
-
-/* 또는 특정 요소에 직접 적용 */
-.footer-info h3,
-.nav-links a,
-.service-card h3,
-.doctor-card h3 {
-  white-space: nowrap;
-}
-
-/* 모바일에서 컨테이너 너비가 좁을 때 텍스트 처리 */
-@media (max-width: 768px) {
-  .service-card p,
-  .about-text p {
-    word-break: keep-all; /* 한글 단어 단위로 줄바꿈 */
-    overflow-wrap: break-word; /* 긴 영단어 줄바꿈 */
-  }
-}
