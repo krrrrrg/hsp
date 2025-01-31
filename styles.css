@@ -357,6 +357,7 @@ body {
   position: relative;
   max-width: 600px;
   margin: 2rem auto;
+  padding: 0 3rem;
 }
 
 .doctor-card {
@@ -843,6 +844,7 @@ footer {
   grid-template-columns: 1fr;
   max-width: 600px;
   margin: 0 auto;
+  padding: 0 3rem;
 }
 
 /* 모바일 화살표 네비게이션 스타일 */
@@ -854,7 +856,7 @@ footer {
   transform: translateY(-50%);
   display: flex;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0;
   z-index: 10;
 }
 
@@ -871,10 +873,21 @@ footer {
   justify-content: center;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.doctor-nav button:first-child {
+  left: -20px;
+}
+
+.doctor-nav button:last-child {
+  right: -20px;
 }
 
 .doctor-nav button:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) translateY(-50%);
 }
 
 @media (max-width: 768px) {
