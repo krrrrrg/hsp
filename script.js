@@ -65,55 +65,47 @@ if (phoneInput) {
 const modal = document.getElementById("serviceModal");
 const closeButton = modal ? document.querySelector(".close-button") : null;
 
-window.showServiceDetail = function (service) {
-  if (!modal) return;
+function showServiceDetail(service) {
+  const modal = document.getElementById('serviceModal');
+  const details = document.querySelectorAll('.service-detail');
+  
+  // 모든 상세 내용 숨기기
+  details.forEach(detail => detail.style.display = 'none');
+  
+  // 선택된 서비스 상세 내용 표시
+  document.getElementById(service + 'Detail').style.display = 'block';
+  modal.style.display = 'block';
+  document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+}
 
-  // 서비스 섹션의 위치 찾기
-  const servicesSection = document.getElementById("services");
-  if (servicesSection) {
-    // 서비스 섹션이 화면 상단에 오도록 스크롤
-    const offset = servicesSection.offsetTop - 100; // 상단에 약간의 여백을 둠
-    window.scrollTo({
-      top: offset,
-      behavior: "smooth",
-    });
-  }
+// 모달 닫기 이벤트 리스너 추가
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('serviceModal');
+  const closeBtn = document.querySelector('.close-button');
 
-  modal.style.display = "flex";
+  // X 버튼 클릭시 닫기
+  closeBtn.addEventListener('click', closeModal);
 
-  // 모달 애니메이션 효과 추가
-  modal.style.opacity = "0";
-  modal.style.transform = "scale(0.95)";
-
-  setTimeout(() => {
-    modal.style.opacity = "1";
-    modal.style.transform = "scale(1)";
-  }, 50);
-
-  document.querySelectorAll(".service-detail").forEach((detail) => {
-    detail.style.display = "none";
-  });
-  document.getElementById(`${service}Detail`).style.display = "block";
-
-  // 모달 내용을 처음부터 보이게 스크롤 초기화
-  modal.querySelector(".modal-content").scrollTop = 0;
-
-  // 페이지 스크롤 방지
-  document.body.style.overflow = "hidden";
-};
-
-if (closeButton && modal) {
-  closeButton.addEventListener("click", () => {
-    modal.style.display = "none";
-    document.body.style.overflow = "auto"; // 스크롤 다시 활성화
-  });
-
-  window.addEventListener("click", (e) => {
+  // 모달 외부 클릭시 닫기
+  modal.addEventListener('click', function(e) {
     if (e.target === modal) {
-      modal.style.display = "none";
-      document.body.style.overflow = "auto"; // 스크롤 다시 활성화
+      closeModal();
     }
   });
+
+  // ESC 키 누를때 닫기
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+});
+
+// 모달 닫기 함수
+function closeModal() {
+  const modal = document.getElementById('serviceModal');
+  modal.style.display = 'none';
+  document.body.style.overflow = ''; // 배경 스크롤 복원
 }
 
 // 햄버거 메뉴 기능

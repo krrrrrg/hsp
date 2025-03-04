@@ -31,6 +31,7 @@
       content="두통/수면장애/치매 클리닉 전문 진료 안내입니다."
     />
     <meta property="og:site_name" content="강남제신경과의원" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
   <body>
     <nav class="navbar">
@@ -60,17 +61,17 @@
           <h2>진료안내</h2>
           <div class="service-grid">
             <div class="service-card" onclick="showServiceDetail('headache')">
-              <i class="bi bi-activity service-icon"></i>
+              <img src="images/두통.png" alt="두통" />
               <h3>두통 클리닉</h3>
               <p>만성 편두통, 긴장성 두통의 전문적 치료</p>
             </div>
             <div class="service-card" onclick="showServiceDetail('sleep')">
-              <i class="bi bi-moon-stars service-icon"></i>
+              <img src="images/수면.png" alt="수면장애" />
               <h3>수면 클리닉</h3>
               <p>수면무호흡증, 불면증 등 수면장애 치료</p>
             </div>
             <div class="service-card" onclick="showServiceDetail('dementia')">
-              <i class="bi bi-diagram-3 service-icon"></i>
+              <img src="images/치매.png" alt="치매" />
               <h3>치매 클리닉</h3>
               <p>조기진단과 체계적인 치료 시스템</p>
             </div>
@@ -82,14 +83,16 @@
     <!-- 서비스 상세 모달 -->
     <div id="serviceModal" class="modal">
       <div class="modal-content">
-        <span class="close-button">&times;</span>
+        <span class="close-button">×</span>
 
         <!-- 두통 클리닉 상세 -->
         <div id="headacheDetail" class="service-detail">
           <h2>두통 클리닉</h2>
           <div class="detail-content">
             <div class="detail-section">
-              <h3>주요 증상</h3>
+              <div class="service-section">
+                <h3>주요 증상</h3>
+              </div>
               <ul>
                 <li>만성 편두통</li>
                 <li>긴장성 두통</li>
@@ -98,7 +101,9 @@
               </ul>
             </div>
             <div class="detail-section">
-              <h3>진단 방법</h3>
+              <div class="service-section">
+                <h3>진단 방법</h3>
+              </div>
               <ul>
                 <li>두통 일기를 통한 분석</li>
                 <li>신경학적 검사</li>
@@ -107,7 +112,9 @@
               </ul>
             </div>
             <div class="detail-section">
-              <h3>치료 방법</h3>
+              <div class="service-section">
+                <h3>치료 방법</h3>
+              </div>
               <ul>
                 <li>약물 치료</li>
                 <li>주사 치료</li>
@@ -118,12 +125,14 @@
           </div>
         </div>
 
-        <!-- 수면 클리닉 상세 -->
+        <!--  클리닉 상세 -->
         <div id="sleepDetail" class="service-detail">
           <h2>수면 클리닉</h2>
           <div class="detail-content">
             <div class="detail-section">
-              <h3>주요 증상</h3>
+              <div class="service-section">
+                <h3>주요 증상</h3>
+              </div>
               <ul>
                 <li>수면무호흡증</li>
                 <li>불면증</li>
@@ -132,7 +141,9 @@
               </ul>
             </div>
             <div class="detail-section">
-              <h3>진단 방법</h3>
+              <div class="service-section">
+                <h3>진단 방법</h3>
+              </div>
               <ul>
                 <li>수면다원검사</li>
                 <li>수면 일기 분석</li>
@@ -141,7 +152,9 @@
               </ul>
             </div>
             <div class="detail-section">
-              <h3>치료 방법</h3>
+              <div class="service-section">
+                <h3>치료 방법</h3>
+              </div>
               <ul>
                 <li>양압기 치료</li>
                 <li>약물 치료</li>
@@ -157,7 +170,9 @@
           <h2>치매 클리닉</h2>
           <div class="detail-content">
             <div class="detail-section">
-              <h3>주요 증상</h3>
+              <div class="service-section">
+                <h3>주요 증상</h3>
+              </div>
               <ul>
                 <li>기억력 저하</li>
                 <li>판단력 감퇴</li>
@@ -166,7 +181,9 @@
               </ul>
             </div>
             <div class="detail-section">
-              <h3>진단 방법</h3>
+              <div class="service-section">
+                <h3>진단 방법</h3>
+              </div>
               <ul>
                 <li>신경인지검사</li>
                 <li>뇌 MRI 검사</li>
@@ -175,7 +192,9 @@
               </ul>
             </div>
             <div class="detail-section">
-              <h3>치료 방법</h3>
+              <div class="service-section">
+                <h3>치료 방법</h3>
+              </div>
               <ul>
                 <li>약물 치료</li>
                 <li>인지재활치료</li>

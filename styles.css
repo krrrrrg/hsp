@@ -1177,7 +1177,7 @@ input[type="text"]::placeholder {
   }
 }
 
-/* 모달 기본 스타일 */
+/* 모달 기본 스타일 개선 */
 .modal {
   display: none;
   position: fixed;
@@ -1186,75 +1186,185 @@ input[type="text"]::placeholder {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   overflow-y: auto;
   overflow-x: hidden;
+  backdrop-filter: blur(5px);
 }
 
 .modal-content {
   background-color: #fff;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 8px;
+  margin: 40px auto;
+  padding: 40px;
+  border-radius: 20px;
   width: 90%;
-  max-width: 800px;
+  max-width: 900px;
   position: relative;
-  max-height: 90vh;
+  max-height: 85vh;
   overflow-y: auto;
   overflow-x: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* 모달 내부 콘텐츠 스타일 */
 .service-detail {
   display: none;
-  padding: 20px;
+}
+
+.service-detail h2 {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.service-detail h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
 }
 
 .detail-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .detail-section {
-  margin-bottom: 20px;
+  background: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
 }
 
-/* 닫기 버튼 스타일 */
+.detail-section:hover {
+  transform: translateY(-5px);
+}
+
+.detail-section h3 {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* 모달 내부 섹션 아이콘 스타일 */
+.detail-section h3::before {
+  font-family: "bootstrap-icons";
+  margin-right: 10px;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+
+.detail-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.detail-section ul li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.detail-section ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+}
+
+/* 닫기 버튼 스타일 수정 */
 .close-button {
-  position: sticky;
-  top: 10px;
-  float: right;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
   font-size: 28px;
   font-weight: bold;
-  cursor: pointer;
-  color: #333;
+  color: #666;
+  /* 터치 영역 확장 */
+  padding: 10px;
+  box-sizing: content-box;
+  margin: -10px;
 }
 
 .close-button:hover {
-  color: #000;
+  background: #eee;
+  transform: rotate(90deg);
+  color: #333;
 }
 
 /* 모바일 대응 */
 @media (max-width: 768px) {
-  .container {
-    padding: 0 1rem;
-  }
-
-  .service-grid {
-    padding: 1rem 0;
-  }
-
   .modal-content {
+    padding: 30px 20px;
+    margin: 20px auto;
     width: 95%;
-    margin: 10px auto;
-    padding: 15px;
   }
-  
+
   .detail-content {
     grid-template-columns: 1fr;
     gap: 1rem;
-    width: 100%;
+  }
+
+  .service-detail h2 {
+    font-size: 1.8rem;
+  }
+
+  .detail-section {
+    padding: 1.5rem;
+  }
+
+  .detail-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .detail-section ul li {
+    font-size: 1rem;
+  }
+
+  .close-button {
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 24px;
   }
 }
 
@@ -1314,72 +1424,113 @@ body {
 /* 예약 폼 */
 .reservation-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
   margin-top: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.reservation-form {
+.reservation-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.info-card {
   background: white;
-  padding: 2.5rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-group {
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h3 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
   margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #333;
-  font-weight: 500;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--primary-color);
-}
-
-.submit-button {
+.info-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
   background: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  border-radius: 30px;
-  cursor: pointer;
-  width: 100%;
-  transition: transform 0.3s ease;
+  border-radius: 2px;
 }
 
-.submit-button:hover {
-  transform: scale(1.02);
+.info-card ul {
+  list-style: none;
+  padding: 0;
 }
 
+.info-card ul li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #555;
+}
+
+.info-card ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+}
+
+.phone {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.phone::before {
+  content: '📞';
+  font-size: 1.4rem;
+}
+
+.transport {
+  margin-top: 1rem;
+}
+
+.transport strong {
+  color: var(--primary-color);
+  display: inline-block;
+  margin-bottom: 0.3rem;
+}
+
+/* 모바일 대응 */
 @media (max-width: 768px) {
-  .reservation-content {
+  .reservation-info {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    margin: 1rem;
+    padding: 0 1rem;
   }
 
-  .reservation-form {
+  .info-card {
     padding: 1.5rem;
+  }
+
+  .info-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .phone {
+    font-size: 1.5rem;
   }
 }
 
@@ -1479,56 +1630,3 @@ footer {
   }
 }
 
-/* 예약 정보 섹션 스타일 */
-.reservation-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-top: 2rem;
-}
-
-.reservation-info {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding: 0.5rem;
-  margin: 0 -1rem;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.info-card {
-  min-width: 280px;
-  flex-shrink: 0;
-  scroll-snap-align: start;
-  margin: 0.5rem;
-  background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-}
-
-.info-card:hover {
-  transform: translateY(-5px);
-}
-
-.info-card h3 {
-  color: var(--primary-color);
-  margin-bottom: 1.2rem;
-  font-size: 1.3rem;
-}
-
-.info-card p {
-  color: #666;
-  margin-bottom: 0.8rem;
-  line-height: 1.6;
-}
-
-/* 전화번호 강조 */
-.phone {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  margin: 1rem 0;
-}
