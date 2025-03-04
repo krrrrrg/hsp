@@ -1630,3 +1630,49 @@ footer {
   }
 }
 
+.phone-number {
+  color: var(--primary-color);
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.phone-number:hover {
+  color: #1a3ccc; /* 더 진한 파란색으로 변경 */
+}
+
+/* 모바일에서는 전화 아이콘에 특별한 스타일 적용 */
+@media (max-width: 768px) {
+  .phone-number {
+    font-size: 1.8rem;
+  }
+}
+
+.phone-number::before {
+  content: '☎';  /* 심플한 전화기 아이콘 */
+  font-size: 1.8rem;
+  margin-right: 8px;
+}
+
+.kakao-link {
+  color: #555;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.kakao-link:hover {
+  color: var(--primary-color);
+}
+
+.kakao-link::before {
+  content: '💬';
+  font-size: 1.2rem;
+}
+
