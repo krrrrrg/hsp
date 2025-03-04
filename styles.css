@@ -185,17 +185,25 @@ a {
 }
 
 .service-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem 0.5rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -1rem;
 }
 
 .service-card {
+  min-width: 280px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
   background: var(--light-gray);
   padding: 2rem;
   border-radius: 20px;
   text-align: center;
   transition: transform 0.3s ease;
+  margin: 0.5rem;
 }
 
 .service-card:hover {
@@ -223,6 +231,37 @@ a {
 
 .service-card:hover .service-icon {
   transform: scale(1.1);
+}
+
+/* 스크롤바 스타일링 */
+.service-grid::-webkit-scrollbar {
+  height: 4px;
+}
+
+.service-grid::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.service-grid::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+/* 데스크톱에서는 그리드로 표시 */
+@media (min-width: 1200px) {
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: visible;
+    margin: 0;
+    padding: 0;
+  }
+
+  .service-card {
+    min-width: auto;
+    margin: 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1475,21 +1514,6 @@ footer {
   color: #666;
   margin-bottom: 0.8rem;
   line-height: 1.6;
-}
-
-/* 스크롤바 스타일링 */
-.reservation-info::-webkit-scrollbar {
-  height: 4px;
-}
-
-.reservation-info::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
-}
-
-.reservation-info::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-  border-radius: 4px;
 }
 
 /* 전화번호 강조 */
