@@ -147,6 +147,8 @@ a {
   margin-bottom: 1.5rem;
   line-height: 1.3;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  word-break: keep-all;
+  white-space: pre-line;
 }
 
 .hero-content p {
@@ -275,6 +277,14 @@ a {
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2.5rem;
+    padding: 0 1rem;
+    word-break: keep-all;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+    word-break: keep-all;
   }
 
   .nav-links {
@@ -501,11 +511,14 @@ a {
 
 .doctor-credentials {
   margin: 1.5rem 0;
+  max-width: 100%;
+  padding: 0 1rem;
 }
 
 .doctor-credentials p {
   margin-bottom: 0.5rem;
   line-height: 1.4;
+  font-size: 1rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -515,6 +528,12 @@ a {
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
   color: #666;
+}
+
+.doctor-info {
+  flex: 1;
+  width: 100%;
+  padding: 0 1rem;
 }
 
 /* Reservation Section */
@@ -635,14 +654,17 @@ a {
   }
 
   .doctor-credentials {
-    text-align: left;
-    padding: 0 1rem;
+    padding: 0;
+    width: 100%;
   }
   
   .doctor-credentials p {
     font-size: 0.9rem;
-    white-space: normal;
-    word-break: keep-all;
+    padding-right: 1rem;
+  }
+
+  .doctor-info {
+    padding: 0 0.5rem;
   }
 }
 
@@ -1579,21 +1601,23 @@ body {
   background-color: #0056b3;
 }
 
-/* 푸터 스타일 */
+/* 푸터 스타일 수정 */
 footer {
   background: #333;
   color: white;
-  padding: 4rem 2rem;
+  padding: 4rem 0; /* 좌우 패딩 제거 */
   width: 100%;
-  margin-top: auto; /* 컨텐츠가 적을 때도 푸터를 하단에 유지 */
+  margin-top: auto;
 }
 
 .footer-content {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 3rem;
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 2rem; /* 좌우 패딩을 여기서 적용 */
+  width: auto; /* width: 100% 제거 */
 }
 
 .footer-info h3 {
@@ -1633,17 +1657,14 @@ footer {
 
 @media (max-width: 768px) {
   footer {
-    padding: 3rem 1.5rem;
+    padding: 3rem 0; /* 좌우 패딩 제거 */
   }
 
   .footer-content {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
     text-align: center;
-  }
-
-  .footer-links {
-    align-items: center;
+    padding: 0 2rem; /* 좌우 패딩 유지 */
   }
 }
 
@@ -1693,11 +1714,15 @@ footer {
   font-size: 1.2rem;
 }
 
-/* 푸터 전화번호 스타일 */
+/* 푸터 전화번호 스타일 수정 */
 .footer-info .phone {
   color: white;
   font-size: 1.2rem;
   font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
 }
 
 .footer-info .phone::before {
