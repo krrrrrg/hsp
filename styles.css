@@ -500,9 +500,15 @@ a {
 }
 
 .doctor-credentials {
-  list-style: none;
-  text-align: left;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.doctor-credentials p {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .doctor-credentials li {
@@ -626,6 +632,17 @@ a {
 
   .doctor-info h3 {
     font-size: 1.8rem;
+  }
+
+  .doctor-credentials {
+    text-align: left;
+    padding: 0 1rem;
+  }
+  
+  .doctor-credentials p {
+    font-size: 0.9rem;
+    white-space: normal;
+    word-break: keep-all;
   }
 }
 
@@ -1674,5 +1691,16 @@ footer {
 .kakao-link::before {
   content: '💬';
   font-size: 1.2rem;
+}
+
+/* 푸터 전화번호 스타일 */
+.footer-info .phone {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.footer-info .phone::before {
+  display: none; /* 푸터에서는 전화 아이콘 숨김 */
 }
 
