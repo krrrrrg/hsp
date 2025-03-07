@@ -89,25 +89,31 @@
         <div class="service-grid">
           <div class="service-card" onclick="showServiceDetail('headache')">
             <img src="images/두통.png" alt="두통" />
-            <h3>두통 클리닉</h3>
-            <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; font-size: clamp(12px, 3vw, 16px);">만성 편두통, 긴장성 두통의 전문적 치료</p>
+            <h3>뇌 신경계 질환</h3>
+            <p>뇌졸중, 치매, 파킨슨씨병 , 떨림 등</p>
           </div>
           <div class="service-card" onclick="showServiceDetail('sleep')">
             <img src="images/수면.png" alt="수면장애" />
-            <h3>수면 클리닉</h3>
-            <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; font-size: clamp(12px, 3vw, 16px);">수면무호흡증, 불면증 등 수면장애 치료</p>
+            <h3>두통 및 어지럼증</h3>
+            <p>편두통 및 이석증 , 메니에르병</p>
           </div>
           <div class="service-card" onclick="showServiceDetail('dementia')">
             <img src="images/치매.png" alt="치매" />
-            <h3>치매 클리닉</h3>
-            <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; font-size: clamp(12px, 3vw, 16px);">조기진단과 체계적인 치료 시스템</p>
+            <h3>신경 통증 클리닉</h3>
+            <p>손발 저림, 근골격계 통증, 안면마비</p>
+          </div>
+          <div class="service-card" onclick="showServiceDetail('dementia')">
+            <img src="images/치매.png" alt="치매" />
+            <h3>내과 진료</h3>
+            <p>협압, 당뇨, 비만, 영양요법</p>
           </div>
         </div>
+      </div>
 
         <!-- 진료분야 상세 모달 -->
         <div id="serviceModal" class="modal">
           <div class="modal-content">
-            <span class="close-button">&times;</span>
+            <span class="close-button"></span>
             <div id="headacheDetail" class="service-detail">
               <h2>두통 클리닉</h2>
               <div class="detail-content">
@@ -127,15 +133,6 @@
                     <li>뇌 MRI/MRA</li>
                     <li>경추부 X-ray</li>
                     <li>전문의 상담</li>
-                  </ul>
-                </div>
-                <div class="detail-section">
-                  <h3>치료 방법</h3>
-                  <ul>
-                    <li>맞춤형 약물치료</li>
-                    <li>보톡스 치료</li>
-                    <li>신경차단술</li>
-                    <li>생활습관 교정</li>
                   </ul>
                 </div>
               </div>

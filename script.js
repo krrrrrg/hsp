@@ -61,51 +61,77 @@ if (phoneInput) {
   });
 }
 
-// 진료분야 상세 모달 관련 기능
-const modal = document.getElementById("serviceModal");
-const closeButton = modal ? document.querySelector(".close-button") : null;
-
-function showServiceDetail(service) {
-  const modal = document.getElementById('serviceModal');
-  const details = document.querySelectorAll('.service-detail');
+// 모달 관련 기능 통합
+function showModal(modalId, content) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
   
-  // 모든 상세 내용 숨기기
-  details.forEach(detail => detail.style.display = 'none');
+  // 모달 내용 설정 (services.html의 경우)
+  if (content) {
+    const details = modal.querySelectorAll('.service-detail');
+    details.forEach(detail => detail.style.display = 'none');
+    document.getElementById(content + 'Detail').style.display = 'block';
+  }
   
-  // 선택된 서비스 상세 내용 표시
-  document.getElementById(service + 'Detail').style.display = 'block';
   modal.style.display = 'block';
-  document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+  document.body.style.overflow = 'hidden';
 }
 
-// 모달 닫기 이벤트 리스너 추가
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  const modalContent = modal.querySelector('.modal-content');
+  
+  modalContent.classList.add('slide-up');
+  modal.classList.add('fade-out');
+  
+  setTimeout(() => {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+    modalContent.classList.remove('slide-up');
+    modal.classList.remove('fade-out');
+  }, 300);
+}
+
+// 모달 이벤트 리스너 설정
 document.addEventListener('DOMContentLoaded', function() {
-  const modal = document.getElementById('serviceModal');
-  const closeBtn = document.querySelector('.close-button');
-
-  // X 버튼 클릭시 닫기
-  closeBtn.addEventListener('click', closeModal);
-
-  // 모달 외부 클릭시 닫기
-  modal.addEventListener('click', function(e) {
-    if (e.target === modal) {
-      closeModal();
+  // 모든 모달에 대해 이벤트 리스너 설정
+  const modals = document.querySelectorAll('.modal');
+  
+  modals.forEach(modal => {
+    const closeBtn = modal.querySelector('.close-button');
+    const modalId = modal.id;
+    
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => closeModal(modalId));
     }
+    
+    // 모달 외부 클릭시 닫기
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal(modalId);
+      }
+    });
   });
-
-  // ESC 키 누를때 닫기
+  
+  // ESC 키 누를때 열려있는 모달 닫기
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-      closeModal();
+      const openModal = document.querySelector('.modal[style*="display: block"]');
+      if (openModal) {
+        closeModal(openModal.id);
+      }
     }
   });
 });
 
-// 모달 닫기 함수
-function closeModal() {
-  const modal = document.getElementById('serviceModal');
-  modal.style.display = 'none';
-  document.body.style.overflow = ''; // 배경 스크롤 복원
+// services.html의 showServiceDetail 함수 수정
+function showServiceDetail(service) {
+  showModal('serviceModal', service);
+}
+
+// index.html의 모달 열기 함수 수정 (예시)
+function showIndexModal() {
+  showModal('serviceModal');
 }
 
 // 햄버거 메뉴 기능

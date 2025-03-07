@@ -194,14 +194,11 @@ a {
 }
 
 .service-grid {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  padding: 1rem 0.5rem;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  margin: 0;
-  width: 100%;
+  display: grid;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .service-card {
@@ -258,19 +255,30 @@ a {
   border-radius: 4px;
 }
 
-/* 데스크톱에서는 그리드로 표시 */
-@media (min-width: 1200px) {
+/* 모바일 화면 (기본) */
+@media (max-width: 767px) {
   .service-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    overflow-x: visible;
-    margin: 0;
-    padding: 0;
+    grid-template-columns: 1fr;
   }
+}
 
+/* 태블릿 화면 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* PC 화면 */
+@media (min-width: 1024px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 900px; /* 카드 크기를 적절하게 제한 */
+  }
+  
   .service-card {
-    min-width: auto;
-    margin: 0;
+    max-width: 400px; /* 각 카드의 최대 너비 제한 */
+    margin: 0 auto;
   }
 }
 
@@ -1229,6 +1237,12 @@ input[type="text"]::placeholder {
   overflow-y: auto;
   overflow-x: hidden;
   backdrop-filter: blur(5px);
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.modal.fade-out {
+  opacity: 0;
 }
 
 .modal-content {
@@ -1244,6 +1258,9 @@ input[type="text"]::placeholder {
   overflow-x: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   animation: modalFadeIn 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 @keyframes modalFadeIn {
@@ -1255,6 +1272,49 @@ input[type="text"]::placeholder {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.modal-content.slide-up {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+/* 모달 내부 콘텐츠 스타일 수정 */
+.detail-content {
+  display: grid;
+  /* 3열에서 2열로 변경 */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.detail-section {
+  background: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+  /* 더 넓은 공간 활용을 위해 최대 너비 조정 */
+  max-width: 100%;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .detail-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .modal-content {
+    padding: 30px 20px;
+    margin: 20px auto;
+    width: 95%;
+  }
+}
+
+/* 모달 전체 크기 조정 */
+.modal-content {
+  max-width: 800px; /* 전체 너비 약간 줄임 */
+  padding: 40px;
 }
 
 /* 모달 내부 콘텐츠 스타일 */
@@ -1283,24 +1343,6 @@ input[type="text"]::placeholder {
   border-radius: 2px;
 }
 
-.detail-content {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.detail-section {
-  background: var(--secondary-color);
-  padding: 2rem;
-  border-radius: 15px;
-  transition: transform 0.3s ease;
-}
-
-.detail-section:hover {
-  transform: translateY(-5px);
-}
-
 .detail-section h3 {
   color: var(--primary-color);
   font-size: 1.3rem;
@@ -1318,7 +1360,6 @@ input[type="text"]::placeholder {
   font-size: 1.5rem;
   vertical-align: middle;
 }
-
 
 .detail-section ul {
   list-style: none;
@@ -1340,7 +1381,7 @@ input[type="text"]::placeholder {
   color: var(--primary-color);
 }
 
-/* 닫기 버튼 스타일 수정 */
+/* 닫기 버튼 스타일 */
 .close-button {
   position: absolute;
   top: 20px;
@@ -1354,50 +1395,32 @@ input[type="text"]::placeholder {
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+.close-button::before {
+  content: '×';
   font-size: 28px;
   font-weight: bold;
   color: #666;
-  /* 터치 영역 확장 */
-  padding: 10px;
-  box-sizing: content-box;
-  margin: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
 }
 
 .close-button:hover {
   background: #eee;
   transform: rotate(90deg);
+}
+
+.close-button:hover::before {
   color: #333;
 }
 
 /* 모바일 대응 */
 @media (max-width: 768px) {
-  .modal-content {
-    padding: 30px 20px;
-    margin: 20px auto;
-    width: 95%;
-  }
-
-  .detail-content {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .service-detail h2 {
-    font-size: 1.8rem;
-  }
-
-  .detail-section {
-    padding: 1.5rem;
-  }
-
-  .detail-section h3 {
-    font-size: 1.2rem;
-  }
-
-  .detail-section ul li {
-    font-size: 1rem;
-  }
-
   .close-button {
     top: 15px;
     right: 15px;
